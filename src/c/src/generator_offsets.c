@@ -1,3 +1,4 @@
+
 /* generator_offsets.c - Generate ASM constants for struct offsets */
 #include <stddef.h>
 #include "generator.h"

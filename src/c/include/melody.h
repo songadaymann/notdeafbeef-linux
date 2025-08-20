@@ -1,3 +1,4 @@
+
 #ifndef MELODY_H
 #define MELODY_H
 

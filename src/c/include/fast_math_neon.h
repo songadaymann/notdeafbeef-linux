@@ -1,3 +1,4 @@
+
 // fast_math_neon.h – 4-lane NEON approximations for expf() and sinf()
 // Source: adapted from Julien Pommier's "neon_mathfun" (zlib licence)
 // Provides ~1 ulp accuracy, vastly faster than libm scalar calls.

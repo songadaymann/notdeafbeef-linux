@@ -1,3 +1,4 @@
+
 	.section	__TEXT,__const
 	.align 2
 .L_tau:

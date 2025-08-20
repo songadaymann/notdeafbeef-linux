@@ -1,3 +1,4 @@
+
 .arch armv8-a
 
 // Glitch System ARM64 Assembly Implementation

@@ -1,3 +1,4 @@
+
 .text
 .align 2
 .globl _delay_process_block

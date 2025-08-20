@@ -1,3 +1,4 @@
+
 #ifndef VISUAL_TYPES_H
 #define VISUAL_TYPES_H
 

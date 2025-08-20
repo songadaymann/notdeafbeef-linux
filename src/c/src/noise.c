@@ -1,3 +1,4 @@
+
 #include "noise.h"
 
 void noise_block(rng_t *rng, float *out, uint32_t n)

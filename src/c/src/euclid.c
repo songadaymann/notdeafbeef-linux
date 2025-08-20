@@ -1,3 +1,4 @@
+
 #include "euclid.h"
 
 void euclid_pattern(int pulses, int steps, uint8_t *out)

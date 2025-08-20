@@ -1,3 +1,4 @@
+
 #ifndef SIMPLE_VOICE_H
 #define SIMPLE_VOICE_H
 

@@ -1,3 +1,4 @@
+
 .text
 .align 2
 .globl _sin4_ps_asm

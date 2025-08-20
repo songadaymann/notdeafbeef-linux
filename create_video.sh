@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # Simple FFmpeg wrapper for blockchain context
 # Creates video from existing frames + audio

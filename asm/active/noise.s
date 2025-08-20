@@ -1,3 +1,4 @@
+
 // AArch64 assembly implementation of noise_block
 // void noise_block(rng_t *rng, float *out, uint32_t n)
 //   rng: pointer to rng_t { uint64_t state; }

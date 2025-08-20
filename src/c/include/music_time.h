@@ -1,3 +1,4 @@
+
 #ifndef MUSIC_TIME_H
 #define MUSIC_TIME_H
 

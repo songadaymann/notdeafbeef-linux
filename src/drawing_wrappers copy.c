@@ -1,3 +1,4 @@
+
 // Wrapper functions to bridge C test suite with ASM implementations
 
 #include "include/visual_types.h"

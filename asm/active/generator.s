@@ -1,3 +1,4 @@
+
 	.text
 	.align 2
 	.globl _generator_mix_buffers_asm

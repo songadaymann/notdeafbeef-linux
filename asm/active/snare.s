@@ -1,3 +1,4 @@
+
 	.text
 	.align 2
 	.globl _snare_process

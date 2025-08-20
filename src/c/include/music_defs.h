@@ -1,3 +1,4 @@
+
 #ifndef MUSIC_DEFS_H
 #define MUSIC_DEFS_H
 

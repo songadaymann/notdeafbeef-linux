@@ -1,3 +1,4 @@
+
 #ifndef SNARE_H
 #define SNARE_H
 

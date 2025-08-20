@@ -1,3 +1,4 @@
+
 #include "wav_writer.h"
 #include "hat.h"
 #include <stdlib.h>

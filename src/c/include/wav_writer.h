@@ -1,3 +1,4 @@
+
 #ifndef WAV_WRITER_H
 #define WAV_WRITER_H
 

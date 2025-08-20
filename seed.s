@@ -1,3 +1,4 @@
+
 ; NotDeafBeef - Transaction Hash Seed Placeholder
 ; ==================================================
 ; This file contains the token's unique seed that drives all generation.

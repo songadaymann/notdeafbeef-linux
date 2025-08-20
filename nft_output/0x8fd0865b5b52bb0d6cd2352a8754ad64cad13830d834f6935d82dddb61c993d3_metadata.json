@@ -1,0 +1,18 @@
+{
+  "transaction_hash": "0x8fd0865b5b52bb0d6cd2352a8754ad64cad13830d834f6935d82dddb61c993d3",
+  "seed": "0x8fd0865b5b52bb0d6cd2352a8754ad64cad13830d834f6935d82dddb61c993d3", 
+  "audio_duration": 28.515374,
+  "video_duration": 28.500000,
+  "video_size": " 14M",
+  "video_resolution": "800x600",
+  "frame_rate": 60,
+  "frame_count":     1710,
+  "generated_at": "2025-08-20T15:46:42Z",
+  "assembly_version": "v1.0",
+  "reproducible": true,
+  "files": {
+    "video": "0x8fd0865b5b52bb0d6cd2352a8754ad64cad13830d834f6935d82dddb61c993d3_final.mp4",
+    "audio": "0x8fd0865b5b52bb0d6cd2352a8754ad64cad13830d834f6935d82dddb61c993d3_audio.wav", 
+    "metadata": "0x8fd0865b5b52bb0d6cd2352a8754ad64cad13830d834f6935d82dddb61c993d3_metadata.json"
+  }
+}

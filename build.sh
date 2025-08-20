@@ -1,3 +1,4 @@
+
 #!/bin/bash
 # NotDeafbeef Reconstruction Build Script  
 # ========================================
@@ -48,8 +49,10 @@ check_tool ffmpeg || MISSING_TOOLS=1
 if [[ $MISSING_TOOLS -eq 1 ]]; then
     echo ""
     echo "📦 Installation commands:"
-    echo "  macOS:   brew install ffmpeg"
-    echo "  Ubuntu:  sudo apt install build-essential ffmpeg"
+    echo "  macOS:    brew install ffmpeg"
+    echo "  Ubuntu:   sudo apt install build-essential ffmpeg libsdl2-dev"
+    echo "  CentOS:   sudo yum install gcc make ffmpeg-devel SDL2-devel"
+    echo "  Alpine:   sudo apk add build-base ffmpeg-dev sdl2-dev"
     exit 1
 fi
 

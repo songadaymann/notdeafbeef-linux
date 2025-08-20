@@ -1,8 +1,16 @@
+
 # Simple build script – Phase 0 scaffolding
 
 CC := clang
-SDL_CFLAGS := $(shell sdl2-config --cflags)
-SDL_LIBS   := $(shell sdl2-config --libs)
+# Detect OS for SDL paths
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+  SDL_CFLAGS := $(shell sdl2-config --cflags)
+  SDL_LIBS   := $(shell sdl2-config --libs)
+else ifeq ($(UNAME_S),Linux)
+  SDL_CFLAGS := $(shell pkg-config --cflags sdl2 2>/dev/null || echo "")
+  SDL_LIBS   := $(shell pkg-config --libs sdl2 2>/dev/null || echo "")
+endif
 
 # Determine host arch first
 ARCH := $(shell uname -m)
@@ -19,10 +27,20 @@ ifeq ($(ARCH),x86_64)
   endif
 endif
 
+# On Linux ARM64, enable ASM by default
+ifeq ($(ARCH),aarch64)
+  USE_ASM := 1
+endif
+
 # If CROSS=1, enforce arm64 code-gen flags
 ifeq ($(CROSS),1)
   USE_ASM := 1
-  CFLAGS += -target arm64-apple-macos13
+  # Detect host OS for proper targeting
+  ifeq ($(UNAME_S),Darwin)
+    CFLAGS += -target arm64-apple-macos13
+  else ifeq ($(UNAME_S),Linux)
+    CFLAGS += -march=armv8-a
+  endif
 endif
 
 # Default USE_ASM detection if not already set
@@ -63,7 +81,12 @@ CFLAGS += -fsanitize=address -fno-omit-frame-pointer
 LDFLAGS += -fsanitize=address
 endif
 
-LDFLAGS := -framework AudioToolbox -framework CoreFoundation -framework OpenGL $(SDL_LIBS)
+# Platform-specific linking flags
+ifeq ($(UNAME_S),Darwin)
+  LDFLAGS := -framework AudioToolbox -framework CoreFoundation -framework OpenGL $(SDL_LIBS)
+else ifeq ($(UNAME_S),Linux)
+  LDFLAGS := $(SDL_LIBS) -lm -lpthread
+endif
 
 # BEGIN ASM SUPPORT
 ifeq ($(USE_ASM),1)
@@ -280,7 +303,14 @@ endif
 # Include minimal generator_step stub for trigger functionality
 GEN_OBJ += src/generator_step.o
 
-REALTIME_OBJ := src/main_realtime.o src/coreaudio.o src/video.o src/raster.o src/terrain.o src/particles.o src/shapes.o src/crt_fx.o
+# Platform-specific audio objects
+ifeq ($(UNAME_S),Darwin)
+  AUDIO_OBJ := src/coreaudio.o
+else ifeq ($(UNAME_S),Linux)
+  AUDIO_OBJ := src/linuxaudio.o
+endif
+
+REALTIME_OBJ := src/main_realtime.o $(AUDIO_OBJ) src/video.o src/raster.o src/terrain.o src/particles.o src/shapes.o src/crt_fx.o
 
 REALTIME_BIN := bin/realtime
 

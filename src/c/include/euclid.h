@@ -1,3 +1,4 @@
+
 #ifndef EUCLID_H
 #define EUCLID_H
 
