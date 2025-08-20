@@ -106,6 +106,7 @@ if command -v sox >/dev/null 2>&1; then
 else
     log "   Using ffmpeg for concatenation..."
     # Create file list for ffmpeg
+    rm -f "$TEMP_CONCAT/filelist.txt"
     for i in {1..6}; do
         echo "file '$TEMP_CONCAT/segment_$i.wav'" >> "$TEMP_CONCAT/filelist.txt"
     done
