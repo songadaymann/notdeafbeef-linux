@@ -1,0 +1,23 @@
+# Build artifacts
+*.o
+*.dSYM
+bin/
+src/c/bin/
+
+# Generated output
+nft_output/
+*.wav
+*.mp4
+frame_*.ppm
+
+# macOS
+.DS_Store
+
+# Build cache
+build/
+cache/
+
+# Test output files
+*_test.wav
+*_c.wav
+*_asm.wav
