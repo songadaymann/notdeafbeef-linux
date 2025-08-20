@@ -109,7 +109,7 @@ else
     for i in {1..6}; do
         echo "file '$TEMP_CONCAT/segment_$i.wav'" >> "$TEMP_CONCAT/filelist.txt"
     done
-    ffmpeg -f concat -safe 0 -i "$TEMP_CONCAT/filelist.txt" -c copy "$AUDIO_LONG" -y >/dev/null 2>&1 || error "FFmpeg concatenation failed"
+    ffmpeg -f concat -safe 0 -i "$TEMP_CONCAT/filelist.txt" -c copy "$AUDIO_LONG" -y || error "FFmpeg concatenation failed"
 fi
 
 EXTENDED_DURATION=$(ffprobe -v quiet -show_entries format=duration -of csv=p=0 "$AUDIO_LONG" 2>/dev/null)
