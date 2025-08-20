@@ -27,9 +27,9 @@ ifeq ($(ARCH),x86_64)
   endif
 endif
 
-# On Linux ARM64, enable ASM by default
+# On Linux ARM64, disable ASM (incompatible syntax)
 ifeq ($(ARCH),aarch64)
-  USE_ASM := 1
+  USE_ASM := 0
 endif
 
 # If CROSS=1, enforce arm64 code-gen flags
