@@ -62,6 +62,11 @@ endif
 # base flags
 CFLAGS := -std=c11 -Wall -Wextra -O2 -Iinclude $(SDL_CFLAGS)
 
+# Linux math defines
+ifeq ($(UNAME_S),Linux)
+  CFLAGS += -D_GNU_SOURCE -D_USE_MATH_DEFINES
+endif
+
 # Enhanced debug flags for LLDB debugging with mixed C+assembly (mentioned in roadmap)
 ifeq ($(DEBUG),1)
 CFLAGS += -g -O0 -fstandalone-debug -fno-omit-frame-pointer
