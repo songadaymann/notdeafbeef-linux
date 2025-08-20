@@ -191,9 +191,16 @@ CFLAGS += -DGENERATOR_RMS_ASM_PRESENT
 endif
 
 ifeq ($(USE_ASM),1)
-  ifneq ($(ARCH),arm64)
-    # x86 hosts need explicit cross-target so clang understands AArch64 mnemonics
-    CFLAGS += -target arm64-apple-macos13
+  # Only add cross-compilation flags if we're on x86_64 and cross-compiling
+  ifeq ($(ARCH),x86_64)
+    ifeq ($(CROSS),1)
+      # Detect host OS for proper targeting
+      ifeq ($(UNAME_S),Darwin)
+        CFLAGS += -target arm64-apple-macos13
+      else ifeq ($(UNAME_S),Linux)
+        CFLAGS += -march=armv8-a
+      endif
+    endif
   endif
 # fm_voice_neon.c superseded by hand-written assembly; skip this object
 NEON_OBJ :=
