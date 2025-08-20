@@ -534,9 +534,9 @@ fm_asm: clean
 segment: $(SEG_BIN)
 ifndef NO_RUN
 ifdef SEED
-	$(SEG_BIN) $(SEED)
+	./$(SEG_BIN) $(SEED)
 else
-	$(SEG_BIN)
+	./$(SEG_BIN)
 endif
 	@echo "Generated segment.wav"
 endif
